@@ -1,0 +1,61 @@
+{{ define "content" }}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card border-0 shadow-lg rounded-5 bg-white">
+        <div class="card-header text-center text-white rounded-top-5 py-4" style="background: linear-gradient(135deg, #7c3aed, #a78bfa);">
+          <h4 class="mb-0 fw-semibold"><i class="bi bi-journal-text me-2"></i>{{ .Title }}</h4>
+        </div>
+        <div class="card-body px-5 py-4 bg-light rounded-bottom-5">
+          <form action="{{ .Action }}" method="post">
+            <!-- Nama Lab -->
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control rounded-4 shadow-sm" id="nama_lab" name="nama_lab" placeholder="Nama Lab" value="{{ .Lab.NamaLab }}" required>
+              <label for="nama_lab">🧪 Nama Lab</label>
+            </div>
+
+            <!-- Lokasi -->
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control rounded-4 shadow-sm" id="lokasi" name="lokasi" placeholder="Lokasi" value="{{ .Lab.Lokasi }}" required>
+              <label for="lokasi">📍 Lokasi</label>
+            </div>
+
+            <!-- Kapasitas -->
+            <div class="form-floating mb-5">
+              <input type="number" class="form-control rounded-4 shadow-sm" id="kapasitas" name="kapasitas" placeholder="Kapasitas" value="{{ .Lab.Kapasitas }}" required>
+              <label for="kapasitas">👥 Kapasitas</label>
+            </div>
+
+            <!-- Tombol -->
+            <div class="d-flex justify-content-between">
+              <a href="/lab" class="btn btn-outline-secondary rounded-pill px-4 shadow-sm">
+                <i class="bi bi-arrow-left me-1"></i> Kembali
+              </a>
+              <button type="submit" class="btn rounded-pill text-white px-4 shadow-sm"
+                style="background: linear-gradient(to right, #34d399, #10b981); border: none;">
+                <i class="bi bi-check-circle me-1"></i> Simpan
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-control:focus {
+    border-color: #a78bfa;
+    box-shadow: 0 0 0 0.15rem rgba(167, 139, 250, 0.25);
+  }
+
+  label {
+    color: #6b7280;
+  }
+
+  .btn:hover {
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
+  }
+</style>
+{{ end }}

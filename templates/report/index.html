@@ -1,0 +1,68 @@
+{{ define "content" }}
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold" style="color: #7c3aed;">Laporan Data Sistem</h2>
+    <div style="width: 80px; height: 4px; background: #7c3aed; margin: 0 auto; border-radius: 4px;"></div>
+  </div>
+
+  <div class="row g-4 justify-content-center">
+    <!-- Card Lab -->
+    <div class="col-md-5">
+      <div class="glass-card p-4 text-center shadow">
+        <div class="display-6 mb-3 text-primary">
+          <i class="bi bi-building-fill"></i>
+        </div>
+        <h5 class="fw-semibold text-dark">Data Laboratorium</h5>
+        <p class="text-muted small mb-4">Kelola dan ekspor data seluruh laboratorium</p>
+        <div class="d-flex justify-content-center gap-2">
+          <a href="/lab/pdf" class="btn btn-outline-danger btn-sm rounded-pill px-3 shadow-sm">
+            <i class="bi bi-file-earmark-pdf-fill me-1"></i> PDF
+          </a>
+          <a href="/lab/excel" class="btn btn-outline-success btn-sm rounded-pill px-3 shadow-sm">
+            <i class="bi bi-file-earmark-excel-fill me-1"></i> Excel
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Card Alat -->
+    <div class="col-md-5">
+      <div class="glass-card p-4 text-center shadow">
+        <div class="display-6 mb-3" style="color: #ec4899;">
+          <i class="bi bi-tools"></i>
+        </div>
+        <h5 class="fw-semibold text-dark">Data Peralatan</h5>
+        <p class="text-muted small mb-4">Data inventaris alat laboratorium</p>
+        <div class="d-flex justify-content-center gap-2">
+          <a href="/alat/pdf" class="btn btn-outline-danger btn-sm rounded-pill px-3 shadow-sm">
+            <i class="bi bi-file-earmark-pdf-fill me-1"></i> PDF
+          </a>
+          <a href="/alat/excel" class="btn btn-outline-success btn-sm rounded-pill px-3 shadow-sm">
+            <i class="bi bi-file-earmark-excel-fill me-1"></i> Excel
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  body {
+    background: linear-gradient(to right, #fdf2f8, #eef2ff);
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 1.5rem;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+  }
+
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+  }
+</style>
+{{ end }}

@@ -1,0 +1,80 @@
+{{ define "content" }}
+<div class="container py-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-7">
+      <div class="card border-0 shadow-lg rounded-5">
+        <div class="card-header text-center text-white rounded-top-5 py-4" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">
+          <h4 class="mb-0 fw-semibold"><i class="bi bi-tools me-2"></i>{{ .Title }}</h4>
+        </div>
+        <div class="card-body px-5 py-4 bg-light rounded-bottom-5">
+          <form action="{{ .Action }}" method="post">
+            
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control rounded-4 shadow-sm" id="nama_alat" name="nama_alat" placeholder="Nama Alat" value="{{ .Alat.NamaAlat }}" required>
+              <label for="nama_alat">Nama Alat</label>
+            </div>
+
+            <div class="form-floating mb-4">
+              <input type="number" class="form-control rounded-4 shadow-sm" id="jumlah" name="jumlah" placeholder="Jumlah" value="{{ .Alat.Jumlah }}" required>
+              <label for="jumlah">Jumlah</label>
+            </div>
+
+            <div class="form-floating mb-4">
+              <input type="text" class="form-control rounded-4 shadow-sm" id="kondisi" name="kondisi" placeholder="Kondisi" value="{{ .Alat.Kondisi }}" required>
+              <label for="kondisi">Kondisi</label>
+            </div>
+
+            <div class="mb-5">
+              <label for="lab_id" class="form-label fw-semibold">Pilih Lab</label>
+              <select class="form-select rounded-4 shadow-sm" id="lab_id" name="lab_id" required>
+                <option value="">-- Pilih Lab --</option>
+                {{ range .Labs }}
+                  <option value="{{ .ID }}" {{ if eq .ID $.Alat.LabID }}selected{{ end }}>{{ .NamaLab }}</option>
+                {{ end }}
+              </select>
+            </div>
+
+            <div class="d-flex justify-content-between">
+              <a href="/alat" class="btn btn-outline-purple rounded-pill px-4">
+                <i class="bi bi-arrow-left me-1"></i> Kembali
+              </a>
+              <button type="submit" class="btn btn-gradient rounded-pill text-white px-4">
+                <i class="bi bi-check-circle me-1"></i> Simpan
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .form-control:focus {
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 0.15rem rgba(139, 92, 246, 0.25);
+  }
+
+  .btn-gradient {
+    background: linear-gradient(to right, #7c3aed, #8b5cf6);
+    color: white;
+    border: none;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #6d28d9, #7c3aed);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-outline-purple {
+    border-color: #8b5cf6;
+    color: #7c3aed;
+  }
+
+  .btn-outline-purple:hover {
+    background-color: #ede9fe;
+    color: #4c1d95;
+  }
+</style>
+{{ end }}

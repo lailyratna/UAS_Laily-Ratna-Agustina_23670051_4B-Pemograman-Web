@@ -1,0 +1,89 @@
+{{ define "content" }}
+<div class="container py-5">
+  <div class="text-center mb-5">
+    <h2 class="fw-bold" style="color: #6d28d9;"> Daftar Laboratorium </h2>
+  </div>
+
+  <!-- Tombol Tambah -->
+  <div class="text-end mb-4">
+    <a href="/lab/create" class="btn btn-gradient px-4 py-2 rounded-pill shadow-sm">
+      <i class="bi bi-journal-plus me-2"></i> Tambah Lab
+    </a>
+  </div>
+
+  <!-- Kartu Data -->
+  <div class="row g-4">
+    {{ range . }}
+    <div class="col-md-6 col-lg-4">
+      <div class="card h-100 shadow-sm border-0 rounded-4" style="background-color: #f3f4f6;">
+        <div class="card-body p-4">
+          <div class="d-flex align-items-center mb-3">
+            <div class="bg-purple icon-circle me-3">
+              <i class="bi bi-building text-white"></i>
+            </div>
+            <h5 class="fw-bold mb-0">{{ .NamaLab }}</h5>
+          </div>
+          <p class="mb-1 text-muted"><i class="bi bi-geo-alt-fill me-1 text-success"></i> {{ .Lokasi }}</p>
+          <p class="mb-3 text-muted"><i class="bi bi-people-fill me-1 text-warning"></i> Kapasitas: {{ .Kapasitas }}</p>
+
+          <div class="d-flex justify-content-end gap-2">
+            <a href="/lab/edit/{{ .ID }}" class="btn btn-outline-purple btn-sm rounded-pill px-3">
+              <i class="bi bi-pencil-square me-1"></i> Edit
+            </a>
+            <a href="/lab/delete/{{ .ID }}" class="btn btn-outline-danger btn-sm rounded-pill px-3"
+               onclick="return confirm('Yakin ingin menghapus data ini?')">
+              <i class="bi bi-trash me-1"></i> Hapus
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    {{ end }}
+  </div>
+</div>
+
+<!-- Style Tambahan -->
+<style>
+  .btn-gradient {
+    background: linear-gradient(to right, #7c3aed, #8b5cf6);
+    color: white;
+    border: none;
+  }
+
+  .btn-gradient:hover {
+    background: linear-gradient(to right, #6d28d9, #7c3aed);
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+  }
+
+  .btn-outline-purple {
+    border-color: #8b5cf6;
+    color: #7c3aed;
+  }
+
+  .btn-outline-purple:hover {
+    background-color: #ede9fe;
+    color: #4c1d95;
+  }
+
+  .bg-purple {
+    background-color: #8b5cf6;
+    padding: 10px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    font-size: 1.25rem;
+  }
+
+  .icon-circle i {
+    color: white;
+  }
+
+  .card:hover {
+    background-color: #e0e7ff;
+    transition: background-color 0.3s ease-in-out;
+  }
+</style>
+{{ end }}
